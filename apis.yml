@@ -29,10 +29,10 @@ created: '2024-12-03'
 modified: '2026-03-16'
 position: Consuming
 description: >-
-  DISS serves as the enterprise-wide solution for personnel security,
-  suitability, and credentialing management for DoD military, civilian, and
-  contractors. DISS replaced the Joint Personnel Adjudication System (JPAS) as
-  the System of Record on March 31, 2021. 
+  DISS serves as the enterprise-wide solution for personnel security, suitability,
+  and credentialing management for DoD military, civilian, and contractors. DISS replaced
+  the Joint Personnel Adjudication System (JPAS) as the System of Record on March
+  31, 2021.
 maintainers:
   - FN: Kin Lane
     email: kin@apievangelist.com
