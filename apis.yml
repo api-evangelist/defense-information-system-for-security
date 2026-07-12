@@ -31,6 +31,8 @@ created: '2024-12-03'
 modified: '2026-04-28'
 apis: []
 common:
+  - type: DomainSecurity
+    url: security/defense-information-system-for-security-domain-security.yml
   - type: Website
     url: https://www.dcsa.mil/Systems-Applications/Defense-Information-System-for-Security-DISS
   - type: Documentation
