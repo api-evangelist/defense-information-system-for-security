@@ -30,6 +30,16 @@ position: Consuming
 specificationVersion: '0.23'
 kind: government
 tags:
+  - Federal-Government
+  - Defense
+  - Department of Defense
+  - DCSA
+  - Personnel Security
+  - Suitability
+  - Credentialing
+  - Security Clearance
+  - System of Record
+tags_raw:
   - Federal Government
   - Defense
   - Department of Defense
