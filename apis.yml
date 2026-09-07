@@ -61,7 +61,7 @@ tags_raw:
   - Security Clearance
   - System of Record
 created: '2024-12-03'
-modified: '2026-04-28'
+modified: '2026-09-07'
 apis: []
 common:
   - type: DomainSecurity
@@ -74,6 +74,32 @@ common:
     url: https://www.dcsa.mil/News/
   - type: Parent Agency
     url: https://www.dcsa.mil
+  - type: LLMsTxt
+    url: llms/defense-information-system-for-security-llms.txt
 maintainers:
   - FN: Kin Lane
     email: kin@apievangelist.com
+x-enrichment:
+  date: '2026-09-07'
+  status: minimal
+  artifacts_added: 2
+  pass: local-v3
+x-coverage:
+  state: blocked
+  reason: bot-challenge
+  detail: >-
+    Every request to www.dcsa.mil — including the site root and /robots.txt, from
+    two independent networks, with browser User-Agent and full browser headers over
+    both HTTP/2 and HTTP/1.1 — is refused by the Akamai edge with a flat HTTP 403
+    "AkamaiGHost / Access Denied", so not one DCSA page or well-known path could be
+    read directly during this pass.
+  evidence:
+    - url: https://www.dcsa.mil/Systems-Applications/Defense-Information-System-for-Security-DISS/
+      status: 403
+    - url: https://www.dcsa.mil/robots.txt
+      status: 403
+    - url: https://www.dcsa.mil/.well-known/security.txt
+      status: 403
+  checked: '2026-09-07'
+x-parent: defense-counterintelligence-and-security-agency
+x-relationship: product

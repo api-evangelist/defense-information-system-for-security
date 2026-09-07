@@ -1,54 +1,51 @@
 specification: API Commons Plans
 specificationVersion: '0.1'
 schema: https://raw.githubusercontent.com/api-evangelist/interface-research/main/schema/api-commons.yml#/$defs/Plans
+generated: '2026-09-07'
+method: searched
+source: >-
+  Web search across DCSA public material for a DISS developer program, pricing
+  page or plan schedule, plus direct probes of www.dcsa.mil (all HTTP 403).
 provider: Defense Information System for Security
 providerId: defense-information-system-for-security
 created: '2026-05-22'
-modified: '2026-05-22'
+modified: '2026-09-07'
 tags:
-- Federal Government
-- Defense
-- Department of Defense
-- DCSA
-- Personnel Security
-- Suitability
-- Credentialing
-- Security Clearance
-- System of Record
-description: Machine-readable plans scaffold for the Defense Information System for Security API surface. Conforms to the
-  API Commons Plans schema. Tier limits and prices are scaffold defaults; replace with provider-published values.
-plans:
-- id: defense-information-system-for-security-free
-  name: Free
-  type: freemium
-  description: Free entry tier for the Defense Information System for Security API surface. Intended for evaluation, prototyping,
-    and low-volume integrations. Real limits and pricing must be reconciled with the provider's published plan documentation.
-  entries:
-  - label: API Requests
-    description: Monthly API request quota across all included endpoints
-    name: api_requests
-    type: quota
-    metric: requests
-    limit: 1000
-    timeFrame: month
-    geo: global
-    domains:
-    - https://defense-information-system-for-security.example/api
-    unit: 1
-    price: '0.00'
-    userMultiplied: false
-  - label: Rate Limit
-    description: Maximum requests per minute on the free tier
-    name: rate_limit
-    type: rate
-    metric: requests_per_minute
-    limit: 10
-    timeFrame: minute
-    geo: global
-    domains:
-    - https://defense-information-system-for-security.example/api
-    unit: 1
-    price: '0.00'
+  - Federal Government
+  - Defense
+  - Department of Defense
+  - DCSA
+  - Personnel Security
+  - Suitability
+  - Credentialing
+  - Security Clearance
+  - System of Record
+description: >-
+  No published plans. DISS is a United States Department of Defense enterprise
+  system of record operated by the Defense Counterintelligence and Security
+  Agency; access is granted through a government account-provisioning process
+  to authorized DoD, federal and cleared-contractor security personnel, not
+  purchased. There is no developer program, no public API, and therefore no
+  plan, tier, quota or price to record.
+plan_count: 0
+plans: []
+notes:
+  - >-
+    REPLACES A FABRICATED SCAFFOLD. The prior version of this file declared a
+    "Free" tier with a 1,000 requests/month quota and a 10 req/min rate limit
+    against the invented host
+    https://defense-information-system-for-security.example/api. None of that
+    was ever published by DCSA; it was scaffold filler and has been removed.
+  - >-
+    Access is obtained via the DISS account request / provisioning process
+    described on DCSA's site, which is an authorization workflow rather than a
+    commercial plan.
+  - >-
+    Direct verification against dcsa.mil was not possible on 2026-09-07: the
+    Akamai edge returns HTTP 403 to every automated request. The zero here rests
+    on the absence of any DISS developer program in public search results, not
+    on a fetched pricing page.
 references:
-- name: Defense Information System for Security API Documentation
-  url: https://raw.githubusercontent.com/api-evangelist/defense-information-system-for-security/refs/heads/main/apis.yml
+  - name: DCSA — Defense Information System for Security (DISS)
+    url: https://www.dcsa.mil/Systems-Applications/Defense-Information-System-for-Security-DISS/
+    status: 403

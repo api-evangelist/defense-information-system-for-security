@@ -1,61 +1,46 @@
 specification: API Commons Rate Limits
 specificationVersion: '0.1'
 schema: https://raw.githubusercontent.com/api-evangelist/interface-research/main/schema/api-commons.yml#/$defs/RateLimits
+generated: '2026-09-07'
+method: searched
+source: >-
+  Web search across DCSA public material for a DISS API reference or throttling
+  policy, plus direct probes of www.dcsa.mil (all HTTP 403).
 provider: Defense Information System for Security
 providerId: defense-information-system-for-security
 created: '2026-05-22'
-modified: '2026-05-22'
+modified: '2026-09-07'
 tags:
-- Federal Government
-- Defense
-- Department of Defense
-- DCSA
-- Personnel Security
-- Suitability
-- Credentialing
-- Security Clearance
-- System of Record
-- Rate Limiting
-- Quotas
-- Throttling
-description: Scaffolded rate limit definitions for the Defense Information System for Security API surface. Captures per-tier
-  quotas, burst behavior, response signaling, and recovery semantics. Defaults are scaffold values to be replaced with published
-  provider limits.
-headers:
-  limit: X-RateLimit-Limit
-  remaining: X-RateLimit-Remaining
-  reset: X-RateLimit-Reset
-  retryAfter: Retry-After
-  policy: RateLimit-Policy
-responseCodes:
-  throttled: 429
-  quotaExceeded: 429
-  serviceUnavailable: 503
-limits:
-- tier: free
-  name: Free Tier Default
-  scope: api-key
-  metric: requests_per_minute
-  limit: 10
-  burst: 20
-  timeFrame: minute
-  applies:
-  - https://defense-information-system-for-security.example/api
-  description: Default per-token request rate for the free tier. Bursts above the limit return HTTP 429 with Retry-After.
-- tier: pro
-  name: Pro Tier Default
-  scope: api-key
-  metric: requests_per_minute
-  limit: 120
-  burst: 240
-  timeFrame: minute
-  applies:
-  - https://defense-information-system-for-security.example/api
-  description: Higher rate envelope for paid plans; reconcile against published commercial terms.
-recoveryStrategies:
-- name: Exponential Backoff
-  description: Wait Retry-After seconds (or back off exponentially up to 60s) before retrying.
-- name: Queue and Retry
-  description: Submit bulk work in batches under the burst envelope.
+  - Federal Government
+  - Defense
+  - Department of Defense
+  - DCSA
+  - Personnel Security
+  - Suitability
+  - Credentialing
+  - Security Clearance
+  - System of Record
+description: >-
+  No published rate limits. DISS exposes no public API, so there is no documented
+  quota, window, burst allowance, throttling status code or rate-limit response
+  header to record.
+limit_count: 0
+limits: []
+headers: {}
+responseCodes: {}
+recoveryStrategies: []
 notes:
-- Replace scaffold values with the provider's published rate limit policy.
+  - >-
+    REPLACES A FABRICATED SCAFFOLD. The prior version of this file declared
+    free-tier (10/min, burst 20) and pro-tier (120/min, burst 240) envelopes,
+    an X-RateLimit-* header set and a 429/503 code map, all against the invented
+    host https://defense-information-system-for-security.example/api. DCSA
+    publishes none of it; the scaffold values have been removed.
+  - >-
+    An honest zero. Direct verification against dcsa.mil was not possible on
+    2026-09-07 — the Akamai edge returns HTTP 403 to every automated request —
+    so this records the absence of any published limit, not a fetched policy page.
+references:
+  - name: DCSA — Defense Information System for Security (DISS)
+    url: https://www.dcsa.mil/Systems-Applications/Defense-Information-System-for-Security-DISS/
+    status: 403

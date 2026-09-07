@@ -1,0 +1,72 @@
+generated: '2026-09-07'
+method: probed
+source: >-
+  Direct HTTPS probes of every host this record knows (www.dcsa.mil, dcsa.mil),
+  run 2026-09-07 with a Chrome 131 User-Agent and full browser headers over both
+  HTTP/2 and HTTP/1.1.
+provider: Defense Information System for Security
+providerId: defense-information-system-for-security
+description: >-
+  Well-known discovery probe for the Defense Counterintelligence and Security
+  Agency (DCSA) surface that hosts the Defense Information System for Security
+  (DISS). NO DOCUMENT WAS RECOVERED. The dcsa.mil edge (AkamaiGHost) answered
+  HTTP 403 "Access Denied" to every request, including the site root and
+  robots.txt, from two independent networks. This is an absence of a READING,
+  not an absence of a document — nothing here should be read as evidence that
+  DCSA does or does not publish these files. No WellKnown or SecurityTxt pointer
+  is emitted, because no path returned a 200 carrying a real document.
+hosts:
+  - host: www.dcsa.mil
+    note: >-
+      Blanket edge deny. Every path, including / and /robots.txt, returns
+      403 AkamaiGHost. Not a soft-404 and not a JS challenge — a flat refusal.
+    documents:
+      - path: /.well-known/security.txt
+        status: 403
+        file: null
+      - path: /.well-known/openid-configuration
+        status: 403
+        file: null
+      - path: /.well-known/oauth-authorization-server
+        status: 403
+        file: null
+      - path: /.well-known/api-catalog
+        status: 403
+        file: null
+      - path: /.well-known/ai-plugin.json
+        status: 403
+        file: null
+      - path: /.well-known/agent-card.json
+        status: 403
+        file: null
+      - path: /.well-known/agent.json
+        status: 403
+        file: null
+      - path: /robots.txt
+        status: 403
+        file: null
+      - path: /llms.txt
+        status: 403
+        file: null
+      - path: /openapi.json
+        status: 403
+        file: null
+      - path: /swagger.json
+        status: 403
+        file: null
+  - host: dcsa.mil
+    note: Apex resolves through the same Akamai edge (www.dss.mil.edgekey.net) and refuses identically.
+    documents:
+      - path: /
+        status: 403
+        file: null
+findings:
+  - No security.txt, OpenID/OAuth metadata, api-catalog, ai-plugin or agent card was recovered.
+  - >-
+    The refusal is host-wide, so no negative inference about DCSA's publishing
+    posture is recorded from it. Re-probe from a different network before drawing
+    any conclusion.
+  - >-
+    HSTS is present on the edge response (max-age=31536000) and is captured in
+    security/defense-information-system-for-security-domain-security.yml.
+pointers_emitted: []
